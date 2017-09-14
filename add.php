@@ -1,8 +1,29 @@
 <?php
+//llamamos el archivo de config para tener la conexion a la bd
 require_once 'config.php';
 // var_dump($_GET);
 // var_dump($_POST);
+// Recojo los valores de la variable global $_POST
+  if (!empty($_POST)) {//si no esta vacia (osea recibi algo...)
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    //no utilizar md5 por razones de seguridad!!!
+    $password = md5($_POST['password']);
 
+    // insertamos nuestros valores utilizando pdo
+    //sentencia (utilizando tags genericos):
+    $sql = "INSERT INTO users (nombre, email, password) VALUES (:name, :email, :password)";
+
+    // Aca guardamos la sentencia! (la preparamos para ser ejecutada...)
+    $query = $pdo->prepare($sql);
+    // como los tags dentro del $sql no estan definidos
+    // se le pasa un arreglo relacional a excecute para darle valores a las etiquetas
+    $result = $query->execute([
+      'name' => $name,
+      'email' => $email,
+      'password' => $password
+    ]);
+  }
  ?>
 <!DOCTYPE html>
 <html>
