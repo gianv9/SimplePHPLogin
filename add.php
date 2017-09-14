@@ -1,6 +1,7 @@
 <?php
 //llamamos el archivo de config para tener la conexion a la bd
 require_once 'config.php';
+$result = false;
 // var_dump($_GET);
 // var_dump($_POST);
 // Recojo los valores de la variable global $_POST
@@ -37,6 +38,13 @@ require_once 'config.php';
       <div class="container">
         <h1>Add User</h1>
         <a href="index.php">Home</a>
+
+            <?php
+                if ($result) {
+                    echo '<div class="alert alert-success">Usuario Agregado Exitosamente!</div>';
+                }
+           ?>
+
         <div class="container">
           <!-- El action es hacia donde voy a mandar los datos del formulario -->
           <!-- el method es el metodo que voy a utilizar para enviar esos datos -->
