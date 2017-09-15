@@ -8,8 +8,12 @@ $result = false;
   if (!empty($_POST)) {//si no esta vacia (osea recibi algo...)
     $name = $_POST['name'];
     $email = $_POST['email'];
-    //no utilizar md5 por razones de seguridad!!!
+
+
+    //no utilizar md5 para guardar passwords por razones de seguridad!!!
     $password = md5($_POST['password']);
+
+
 
     // insertamos nuestros valores utilizando pdo
     //sentencia (utilizando tags genericos):
@@ -35,6 +39,7 @@ $result = false;
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
   </head>
   <body>
+    <hr>
       <div class="container">
         <h1>Add User</h1>
         <a href="index.php">Home</a>
