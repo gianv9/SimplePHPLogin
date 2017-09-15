@@ -20,6 +20,7 @@ require_once 'config.php';
               <th>Nombre</th>
               <th>Email</th>
               <th>Edit</th>
+              <th>Delete</th>
             </tr>
             <?php
             //no preparamos el statement porque no tenemos variables en nuestro query!!!!
@@ -33,8 +34,11 @@ require_once 'config.php';
                   echo "<td>".$row['nombre']."</td>";
                   echo "<td>".$row['email']."</td>";
                   echo '<td>
-                  <a href="update.php?id='.$row['id'].'">Edit User</a>
-                  </td>';
+                            <a href="update.php?id='.$row['id'].'">Edit User</a>
+                        </td>';
+                  echo '<td>
+                            <a href="delete.php?id='.$row['id'].'">Delete User</a>
+                        </td>';
               echo "</tr>";
             }
              ?>
